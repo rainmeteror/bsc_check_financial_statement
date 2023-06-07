@@ -5,7 +5,10 @@ import numpy as np
 def check_ibs_110(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['IBS_110', 'IBS_111', 'IBS_112']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
     
     return df[default_list + check_list].loc[df['check'] != 0]
 
@@ -13,7 +16,10 @@ def check_ibs_110(df: pd.DataFrame) -> pd.DataFrame:
 def check_ibs_120(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['IBS_120', 'IBS_121', 'IBS_129', 'IBS_1291']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
     
     return df[default_list + check_list].loc[df['check'] != 0]
 
