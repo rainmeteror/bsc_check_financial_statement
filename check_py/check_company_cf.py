@@ -68,7 +68,7 @@ def check_ccfi_8(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['CCFI_8', 'CCFI_1', 'CCFI_2', 'CCFI_2B',
                   'CCFI_3', 'CCFI_4', 'CCFI_4B', 'CCFI_5', 
-                  'CCFI_6' 'CCFI_6B', 'CCFI_7']
+                  'CCFI_6', 'CCFI_6B', 'CCFI_7']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -81,7 +81,7 @@ def check_ccfi_20(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['CCFI_20', 'CCFI_8', 'CCFI_9', 'CCFI_10',
                   'CCFI_11', 'CCFI_12', 'CCFI_13', 'CCFI_14', 
-                  'CCFI_15' 'CCFI_16', 'CCFI_17']
+                  'CCFI_15', 'CCFI_16', 'CCFI_17']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
