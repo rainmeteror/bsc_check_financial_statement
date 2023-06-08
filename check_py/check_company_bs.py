@@ -275,7 +275,7 @@ def check_cbs_410(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['CBS_410', 'CBS_411', 'CBS_412', 'CBS_413', 
                   'CBS_414', 'CBS_415', 'CBS_416', 'CBS_417', 
-                  'CBS_418', 'CBS_419', 'CBS_420', 'VBC_421',
+                  'CBS_418', 'CBS_419', 'CBS_420', 'CBS_421',
                   'CBS_429']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
