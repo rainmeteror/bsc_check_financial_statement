@@ -17,8 +17,7 @@ def check_sis_20(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['SIS_20', 'SIS_1', 'SIS_2', 'SIS_4',
                   'SIS_5', 'SIS_6', 'SIS_7_1', 'SIS_7_2',
-                  'SIS_8', 'SIS_8_1', 'SIS_9', 'SIS_9_1',
-                  'SIS_9_2', 'SIS_10', 'SIS_11']
+                  'SIS_8', 'SIS_9', 'SIS_10', 'SIS_11']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -27,9 +26,9 @@ def check_sis_20(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_sis_11_2(df: pd.DataFrame) -> pd.DataFrame:
+def check_sis_11(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['SIS_11_2', 'SIS_20', 'SIS_11_1']
+    check_list = ['SIS_11', 'SIS_11_1', 'SIS_11_2']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -51,10 +50,10 @@ def check_sis_21(df: pd.DataFrame) -> pd.DataFrame:
 
 def check_sis_40(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['SIS_40', 'SIS_21', 'SIS_22', 'SIS_22_1',
-                  'SIS_23', 'SIS_24', 'SIS_25', 'SIS_26',
-                  'SIS_27', 'SIS_28', 'SIS_29', 'SIS_29_1',
-                  'SIS_30', 'SIS_31', 'SIS_32']
+    check_list = ['SIS_40', 'SIS_21', 'SIS_22', 'SIS_23', 
+                  'SIS_24', 'SIS_25', 'SIS_26', 'SIS_27', 
+                  'SIS_28', 'SIS_29', 'SIS_30', 'SIS_31', 
+                  'SIS_32']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -65,7 +64,7 @@ def check_sis_40(df: pd.DataFrame) -> pd.DataFrame:
 
 def check_sis_50_1(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['SIS_50_1', 'SIS_11_2', 'SIS_40']
+    check_list = ['SIS_50_1', 'SIS_20', 'SIS_40']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -89,7 +88,7 @@ def check_sis_50(df: pd.DataFrame) -> pd.DataFrame:
 def check_sis_60(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['SIS_60', 'SIS_51', 'SIS_52', 'SIS_53',
-                  'SIS_54', 'SIS_55']
+                  'SIS_54', 'SIS_55', 'SIS_56']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -101,7 +100,7 @@ def check_sis_60(df: pd.DataFrame) -> pd.DataFrame:
 def check_sis_70(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['SIS_70', 'SIS_50_1', 'SIS_50', 'SIS_60',
-                  'SIS_56', 'SIS_61', 'SIS_62']
+                  'SIS_61', 'SIS_62']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -142,8 +141,29 @@ def check_sis_90_sub_items(df: pd.DataFrame) -> pd.DataFrame:
     
     return df[default_list + check_list].loc[df['check'] != 0]
 
+def check_sis_100(df: pd.DataFrame) -> pd.DataFrame:
+    default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
+    check_list = ['SIS_100', 'SIS_100_1', 'SIS_100_2']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
+    df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
+    
+    return df[default_list + check_list].loc[df['check'] != 0]
+
 
 def check_sis_200(df: pd.DataFrame) -> pd.DataFrame:
+    default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
+    check_list = ['SIS_200', 'SIS_90', 'SIS_100']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
+    df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
+    
+    return df[default_list + check_list].loc[df['check'] != 0]
+
+
+def check_sis_200_subitems(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['SIS_200', 'SIS_201', 'SIS_202', 'SIS_203']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])

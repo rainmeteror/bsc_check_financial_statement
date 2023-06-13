@@ -2,9 +2,20 @@ import pandas as pd
 import numpy as np
 
 
+def check_sbs_100(df: pd.DataFrame) -> pd.DataFrame:
+    default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
+    check_list = ['SBS_100', 'SBS_110', 'SBS_130']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
+    df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
+    
+    return df[default_list + check_list].loc[df['check'] != 0]
+
+
 def check_sbs_111(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['SBS_111', 'SBS_111_1', 'SBS_111_3']
+    check_list = ['SBS_111', 'SBS_111_1', 'SBS_111_2']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -78,7 +89,7 @@ def check_sbs_130(df: pd.DataFrame) -> pd.DataFrame:
 def check_sbs_110(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['SBS_110', 'SBS_111', 'SBS_111_4', 'SBS_117',
-                  'SBS_129_3', 'SBS_130']
+                  'SBS_129_3']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])

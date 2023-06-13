@@ -42,8 +42,9 @@ def check_cbs_120(df: pd.DataFrame) -> pd.DataFrame:
 
 def check_cbs_130(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CBS_131', 'CBS_132', 'CBS_133', 'CBS_134',
-                  'CBS_135', 'CBS_136', 'CBS_137', 'CBS_139']
+    check_list = ['CBS_130', 'CBS_131', 'CBS_132', 'CBS_133', 
+                  'CBS_134', 'CBS_135', 'CBS_136', 'CBS_137', 
+                  'CBS_139']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -132,7 +133,7 @@ def check_cbs_227(df: pd.DataFrame) -> pd.DataFrame:
 
 def check_cbs_220(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CBS_220', 'CBS_221', 'CBS_224', 'CBS_227', 'CBS_2601']
+    check_list = ['CBS_220', 'CBS_221', 'CBS_224', 'CBS_227']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -166,7 +167,7 @@ def check_cbs_240(df: pd.DataFrame) -> pd.DataFrame:
 def check_cbs_250(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['CBS_250', 'CBS_251', 'CBS_252', 'CBS_253',
-                  'CBS_254', 'CBS_255']
+                  'CBS_254', 'CBS_255', 'CBS_2691']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -199,12 +200,23 @@ def check_cbs_200(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
+def check_cbs_270(df: pd.DataFrame) -> pd.DataFrame:
+    default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
+    check_list = ['CBS_270', 'CBS_100', 'CBS_200']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
+    df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
+    
+    return df[default_list + check_list].loc[df['check'] != 0]
+
+
 def check_cbs_310(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['CBS_310', 'CBS_311', 'CBS_312', 'CBS_313',
                   'CBS_314', 'CBS_315', 'CBS_316', 'CBS_317',
                   'CBS_318', 'CBS_319', 'CBS_320', 'CBS_321',
-                  'CBS_322', 'CBS_323', 'CBS_324', 'CBS_3241']
+                  'CBS_322', 'CBS_323', 'CBS_324']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -299,6 +311,17 @@ def check_cbs_430(df: pd.DataFrame) -> pd.DataFrame:
 def check_cbs_400(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['CBS_400', 'CBS_410', 'CBS_430']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
+    df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
+    
+    return df[default_list + check_list].loc[df['check'] != 0]
+
+
+def check_cbs_440(df: pd.DataFrame) -> pd.DataFrame:
+    default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
+    check_list = ['CBS_440', 'CBS_300', 'CBS_400']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])

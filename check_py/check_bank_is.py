@@ -92,7 +92,7 @@ def check_bis_21(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_bis_22(df: pd.DataFrame) -> pd.DataFrame:
+def check_bis_21_subitems(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['BIS_21', 'BIS_22', 'BIS_22A']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
@@ -104,6 +104,8 @@ def check_bis_22(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def check_bis_22a(df: pd.DataFrame) -> pd.DataFrame:
+    """ If Profit attributate to minority interest > NPATMI
+    There's something wrong"""
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
     check_list = ['BIS_22', 'BIS_22A']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])

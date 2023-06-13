@@ -1,14 +1,12 @@
-
 import pandas as pd
 import numpy as np
 
 
-# Cashflow Direct
-def check_ccfd_20(df: pd.DataFrame) -> pd.DataFrame:
+# INSURANCE CASHFLOW DIRECT
+def check_icfd_20(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFD_20', 'CCFD_1A', 'CCFD_1', 'CCFD_2',
-                  'CCFD_3', 'CCFD_4', 'CCFD_5', 'CCFD_6', 
-                  'CCFD_7']
+    check_list = ['ICFD_20', 'ICFD_1', 'ICFD_7', 'ICFD_801',
+                  'ICFD_9', 'ICFD_901', 'ICFD_902']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -17,10 +15,11 @@ def check_ccfd_20(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfd_30(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfd_30(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFD_30', 'CCFD_21', 'CCFD_22', 'CCFD_23',
-                  'CCFD_24', 'CCFD_25', 'CCFD_26', 'CCFD_27']
+    check_list = ['ICFD_30', 'ICFD_25', 'ICFD_23', 'ICFD_231',
+                  'ICFD_232', 'ICFD_24', 'ICFD_21', 'ICFD_22',
+                  'ICFD_221', 'ICFD_222']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -29,10 +28,10 @@ def check_ccfd_30(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfd_40(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfd_40(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFD_40', 'CCFD_31', 'CCFD_32', 'CCFD_33',
-                  'CCFD_34', 'CCFD_35', 'CCFD_36', 'CCFD_36A']
+    check_list = ['ICFD_40', 'ICFD_32', 'ICFD_36', 'ICFD_31',
+                  'ICFD_34', 'ICFD_341', 'ICFD_342', 'ICFD_35']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -41,9 +40,9 @@ def check_ccfd_40(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfd_50(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfd_50(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFD_50', 'CCFD_20', 'CCFD_30', 'CCFD_40']
+    check_list = ['ICFD_50', 'ICFD_20', 'ICFD_30', 'ICFD_40']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -52,9 +51,9 @@ def check_ccfd_50(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfd_70(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfd_70(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFD_70', 'CCFD_50', 'CCFD_60', 'CCFD_61']
+    check_list = ['ICFD_70', 'ICFD_50', 'ICFD_60', 'ICFD_601']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -63,11 +62,11 @@ def check_ccfd_70(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-# Cashflow Indirect
-def check_ccfi_8(df: pd.DataFrame) -> pd.DataFrame:
+# INSURANCE CASHFLOW INDIRECT
+def check_icfi_8(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFI_8', 'CCFI_1', 'CCFI_2', 'CCFI_3', 
-                  'CCFI_4', 'CCFI_5', 'CCFI_6', 'CCFI_7']
+    check_list = ['ICFI_8', 'ICFI_1', 'ICFI_2', 'ICFI_3',
+                  'ICFD_4', 'ICFI_5', 'ICFI_6', 'ICFI_7']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -76,11 +75,10 @@ def check_ccfi_8(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfi_20(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfi_9(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFI_20', 'CCFI_8', 'CCFI_9', 'CCFI_10',
-                  'CCFI_11', 'CCFI_12', 'CCFI_13', 'CCFI_14', 
-                  'CCFI_15', 'CCFI_16', 'CCFI_17']
+    check_list = ['ICFI_9', 'ICFI_901', 'ICFI_902', 'ICFI_903',
+                  'ICFD_904', 'ICFI_905']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -89,10 +87,10 @@ def check_ccfi_20(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfi_30(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfi_11(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFI_30', 'CCFI_21', 'CCFI_22', 'CCFI_23',
-                  'CCFI_24', 'CCFI_25', 'CCFI_26', 'CCFI_27']
+    check_list = ['ICFI_11', 'ICFI_111', 'ICFI_112', 'ICFI_113',
+                  'ICFD_114', 'ICFI_115']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -101,10 +99,11 @@ def check_ccfi_30(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfi_40(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfi_20(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFI_40', 'CCFI_31', 'CCFI_32', 'CCFI_33',
-                  'CCFI_34', 'CCFI_35', 'CCFI_36', 'CCFI_37']
+    check_list = ['ICFI_20', 'ICFI_8', 'ICFI_9', 'ICFI_10',
+                  'ICFD_11', 'ICFI_12', 'ICFI_13', 'ICFI_14',
+                  'ICFI_15', 'ICFI_16', 'ICFI_17']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -113,9 +112,10 @@ def check_ccfi_40(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfi_50(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfi_30(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFI_50', 'CCFI_20', 'CCFI_30', 'CCFI_40']
+    check_list = ['ICFI_30', 'ICFI_21', 'ICFI_22', 'ICFI_23',
+                  'ICFD_24', 'ICFI_25', 'ICFI_26', 'ICFI_27']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -124,9 +124,10 @@ def check_ccfi_50(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-def check_ccfi_70(df: pd.DataFrame) -> pd.DataFrame:
+def check_icfi_40(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CCFI_70', 'CCFI_50', 'CCFI_60', 'CCFI_61']
+    check_list = ['ICFI_40', 'ICFI_31', 'ICFI_32', 'ICFI_33',
+                  'ICFD_34', 'ICFI_35', 'ICFI_36']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
@@ -135,6 +136,23 @@ def check_ccfi_70(df: pd.DataFrame) -> pd.DataFrame:
     return df[default_list + check_list].loc[df['check'] != 0]
 
 
-if __name__ == '__main__':
-    print("This is a module for checking COMPANY_CASHFLOW_STATEMENTS")
+def check_icfi_50(df: pd.DataFrame) -> pd.DataFrame:
+    default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
+    check_list = ['ICFI_50', 'ICFI_20', 'ICFI_30', 'ICFI_40']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
+    df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
+    
+    return df[default_list + check_list].loc[df['check'] != 0]
 
+
+def check_icfi_70(df: pd.DataFrame) -> pd.DataFrame:
+    default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
+    check_list = ['ICFI_70', 'ICFI_50', 'ICFI_60', 'ICFI_61']
+    print("CHECK ITEM & SUB-ITEMS " + check_list[0])
+    
+    df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
+    
+    
+    return df[default_list + check_list].loc[df['check'] != 0]
