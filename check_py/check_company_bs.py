@@ -31,7 +31,7 @@ def check_cbs_110(df: pd.DataFrame) -> pd.DataFrame:
 
 def check_cbs_120(df: pd.DataFrame) -> pd.DataFrame:
     default_list = ['SECURITY_CODE', 'REPORT_DATE', 'FREQ_CODE', 'AUDITED']
-    check_list = ['CBS_120', 'CBS_121', 'CBS_123']
+    check_list = ['CBS_120', 'CBS_121', 'CBS_122', 'CBS_123']
     print("CHECK ITEM & SUB-ITEMS " + check_list[0])
     
     df['check'] = df[check_list[0]] - np.sum(df[i] for i in check_list[1:])
